@@ -12,12 +12,14 @@ class Notulensi extends CI_Controller {
 
   public function index()
   {
+
     if($this->Admin->logged_id())
     {
+      $data ['nomor_surat'] = $this->M_Notulensi->getNomorsurat()->result();
       $this->load->view("Template/Header");
       $this->load->view("Template/Sidebar");
-      $this->load->view("notulensi");
-    }else{
+      $this->load->view("notulensi", $data );
+      }else{
 
       //jika session belum terdaftar, maka redirect ke halaman login
       redirect("dashboard");
@@ -39,18 +41,18 @@ class Notulensi extends CI_Controller {
   public function generate_pdf()
   {
     $data = array(
-      "dataku" => array(
-        "nama" => "Petani Kode",
-        "url" => "http://petanikode.com"
-      )
+    "dataku" => array(
+    "nama" => "Notulensi",
+        )
     );
 
     $this->load->library('pdf');
 
     $this->pdf->setPaper('A4', 'potrait');
-    $this->pdf->filename = "laporan-petanikode.pdf";
+    $this->pdf->filename = "catatan-rapat.pdf";
     $this->pdf->load_view('test', $data);
 
   }
+
 
 }

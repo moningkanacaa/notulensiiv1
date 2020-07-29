@@ -8,8 +8,11 @@
         <h3>Selamat Datang di halaman Administrator System Norulensi Rapat. </h3>
         <br>
         <p> <h4> Petunjuk penggunaan : <br>
+          <br>
             1. Upload : Mengunggah surat pengumuman rapat.<br>
+            <br>
             2. Notulensi : Mencatat isi dan kegiatan Rapat. <br>
+            <br>
             3. Arsip : Menyimpan Arsip Norulensi. </h4>
         <br>
         <br>

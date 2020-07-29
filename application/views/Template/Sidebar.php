@@ -13,8 +13,8 @@
               <a href="#" class="list-group-item active" style="text-align: center;background-color: black;border-color: black">
                 ADMINISTRATOR
               </a>
-              <a href="<?php echo base_url('index.php/Dashboard'); ?>" class="list-group-item"><i class="fa fa-dashboard"></i> Dashboard</a>
-              <a href="<?php echo base_url('index.php/Upload'); ?>" class="list-group-item"><i class="fa fa-upload"></i> Upload</a>
+              <a href="<?php echo base_url('index.php/Dashboard'); ?>" class="list-group-item"><i class="fa fa-dashboard"></i> Welcome </a>
+              <a href="<?php echo base_url('index.php/Upload'); ?>" class="list-group-item"><i class="fa fa-upload"></i> Undangan Rapat</a>
               <a href="<?php echo base_url('index.php/Notulensi'); ?>" class="list-group-item"><i class="fa fa-book"></i> Notulensi</a>
               <a href="<?php echo base_url('index.php/Arsip'); ?>" class="list-group-item"><i class="fa fa-archive"></i> Arsip </a>
               <a href="<?php echo base_url() ?>index.php/dashboard/logout" class="list-group-item"><i class="fa fa-sign-out"></i> Logout</a>

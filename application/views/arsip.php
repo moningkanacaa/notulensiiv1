@@ -19,23 +19,29 @@
                 <thead>
                   <tr>
                     <th>Nomor</th>
+                    <th>Nomor Surat</th>
                     <th>Judul Rapat</th>
                     <th>Pelaksanaan</th>
-                    <th>Undangan</th>
                     <th>Notulensi</th>
-                    <th>Action</th>
+                    <th>Download</th>
                   </tr>
+                  <?php
+              		$no = 1;
+              		foreach($datamasuk->result_array() as $u){
+              		?>
                 </thead>
                 <tbody>
+
                   <tr>
-                    <td>001</td>
-                    <td>Rapat penentuan</td>
-                    <td>Ruang Rapat</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>Edit Delete</td>
+                    <td><?php echo $no++ ?></td>
+                    <td><?php echo $u['id'];?></td>
+                    <td><?php echo $u['agenda_r'];?></td>
+                    <td><?php echo $u['lokasi_r'];?></td>
+                    <td><?php echo $u['pembahasan'];?></td>
+                    <td><a href = "<?php echo base_url()?>index.php/Notulensi/generate_pdf" class="fa fa-Download"> PDF </a></td>
                   </tr>
                   </tbody>
+                  <?php } ?>
               </table>
             </div>
           </div>

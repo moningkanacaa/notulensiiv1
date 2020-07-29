@@ -92,7 +92,7 @@
             <br>
             <br>
             <h2 class="text-center">Selamat Datang</h2>
-            <h2 class="text-center">di website Notulensi Rapat Prodi TI</h2>
+            <h2 class="text-center">di sistem Notulensi Rapat Prodi TI</h2>
             <h3 class="text-center">UIKA BOGOR</h3>
             <div class="account-wall">
 

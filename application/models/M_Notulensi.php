@@ -29,4 +29,10 @@ class M_Notulensi extends CI_Model
       ];
       $input = $this->db->insert($this->_table,$data);
       return $input;
-    }}
+    }
+
+    public function getNomorsurat()
+    {
+      return $this->db->get('surat');
+    }
+  }

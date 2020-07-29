@@ -8,15 +8,18 @@ class Arsip extends CI_Controller {
         parent::__construct();
         //load model admin
         $this->load->model('admin');
+        $this->load->model('m_data');
     }
 
     public function index()
     {
         if($this->admin->logged_id())
         {
+            $data['datamasuk'] = $this->m_data->tampil_data();
             $this->load->view("Template/Header");
             $this->load->view("Template/Sidebar");
-            $this->load->view("arsip");
+            $this->load->view("arsip",$data);
+            // $this->db->get('datamasuk');
 
 
         }else{
