@@ -1,5 +1,5 @@
 
-<div class="col-md-9">
+<div class="col-md-10">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title"><i class="fa fa-dashboard"></i> Halaman Arsip</h3>
@@ -19,9 +19,9 @@
                 <thead>
                   <tr>
                     <th>Nomor</th>
-                    <th>Nomor Surat</th>
-                    <th>Judul Rapat</th>
-                    <th>Pelaksanaan</th>
+                    <!-- <th>Nomor Surat</th> -->
+                    <th> Nama Rapat </th>
+                    <!-- <th>Pelaksanaan</th>  -->
                     <th>Notulensi</th>
                     <th>Download</th>
                   </tr>
@@ -34,9 +34,9 @@
 
                   <tr>
                     <td><?php echo $no++ ?></td>
-                    <td><?php echo $u['id'];?></td>
+                    <!-- <td><?php echo $u['id'];?></td> -->
                     <td><?php echo $u['agenda_r'];?></td>
-                    <td><?php echo $u['lokasi_r'];?></td>
+                    <!-- <td><?php echo $u['lokasi_r'];?></td> -->
                     <td><?php echo $u['pembahasan'];?></td>
                     <td><a href = "<?php echo base_url()?>index.php/Notulensi/generate_pdf" class="fa fa-Download"> PDF </a></td>
                   </tr>

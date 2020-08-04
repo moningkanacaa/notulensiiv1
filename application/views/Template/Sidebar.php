@@ -8,7 +8,7 @@
 </head>
 <div class="container" style="margin-top: 80px">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div class="list-group">
               <a href="#" class="list-group-item active" style="text-align: center;background-color: black;border-color: black">
                 ADMINISTRATOR

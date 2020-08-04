@@ -34,7 +34,7 @@
         <div class="custom-control custom-checkbox">
           <?php $namadosen = $this->db->get('namadosen');
           foreach ($namadosen->result() as $row) {?>
-            <input type="checkbox" class="custom-control-input" name="dosen_<?= $row->nidn;?>" id="defaultUnchecked" value="<?php echo $row->nidn;?>">
+            <input type="checkbox" class="custom-control-input" name="dosen[]" id="defaultUnchecked" value="<?php echo $row->nidn;?>">
             <label class="custom-control-label" for="defaultUnchecked"><?php echo $row->name; ?></label> <br>
           <?php } ?>
 

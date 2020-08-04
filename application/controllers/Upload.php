@@ -37,13 +37,26 @@ class Upload extends CI_Controller {
     $dosen = $this->get_data_dosen();
     // print_r($dosen);
     $masuk_email = '';
-    foreach ($dosen['dosen'] as $row) {
-      // print_r($this->input->post("dosen_$row->nidn"));
-      if($this->input->post("dosen_$row->nidn")){
-        $email[$row->nidn] = $row->nidn;
-        $masuk_email .= $row->nidn.";";
+
+    for ($i=0; $i < count($this->input->post("dosen")); $i++) {
+      if (count($this->input->post("dosen")) -1 == $i) {
+        $koma = "";
+      }else{
+        $koma = ";";
+
       }
+      $masuk_email .= $this->input->post("dosen")[$i].$koma;
+      $this->db->where('nidn', $this->input->post("dosen")[$i]);
+      $emailnya[$i] = $this->db->get('namadosen')->row_array()['email'];
     }
+
+
+    //
+
+
+    // $this->db->where('nidn', $masuk_email);
+    // $data = $this->db->get('namadosen')->row_array();
+
     // echo $masuk_email;
     $config['upload_path']          = './undangan/';
     $config['allowed_types']        = 'gif|jpg|png|pdf|doc|docx';
@@ -58,8 +71,40 @@ class Upload extends CI_Controller {
       ];
       // print_r($data);
       $masuk_db = $this->db->insert('surat',$data);
+
+
       if($masuk_db){
-        echo "<script>alert('data berhasil insert');window.location.href = '".base_url()."index.php/Upload';</script>";
+        $config = [
+            'mailtype'  => 'html',
+            'charset'   => 'utf-8',
+            'protocol'  => 'smtp',
+            'smtp_host' => 'smtp.gmail.com',
+            'smtp_user' => 'codeuser.a@gmail.com',  // Email gmail
+            'smtp_pass'   => 'Jung1234',  // Password gmail
+            'smtp_crypto' => 'ssl',
+            'smtp_port'   => 465,
+            'crlf'    => "\r\n",
+            'newline' => "\r\n"
+        ];
+
+            $this->load->library('email', $config);
+
+            $from = $this->config->item('smtp_user');
+
+            foreach ($emailnya as $z) {
+              // code...
+              $this->email->set_newline("\r\n");
+              $this->email->from("codeuser.a@gmail.com");
+              $this->email->to($z);
+              $this->email->subject("Suat undangan TU");
+              $this->email->message("EMAIL UNTUK KAMU");
+              $this->email->attach('./undangan/'.$this->upload->data("file_name"));
+              $this->email->send();
+            }
+
+
+            echo "<script>alert('data berhasil insert');window.location.href = '".base_url()."index.php/Upload';</script>";
+
         // redirect('Upload');
       }else{
         echo "<script>alert('data gagal insert');window.location.href = '".base_url()."index.php/Upload';</script>";
@@ -90,10 +135,10 @@ class Upload extends CI_Controller {
 
         $this->email->set_newline("\r\n");
         $this->email->from("codeuser.a@gmail.com");
-        $this->email->to("moningka.naca@gmail.com");
-        $this->email->subject("ini siapa");
-        $this->email->message("yayayaya");
-        $this->email->addAttachment('asasdsadasdds1.jpg');
+        $this->email->to("maulanazakaria.danu@gmail.com");
+        $this->email->subject("Suat undangan TU");
+        $this->email->message("EMAIL UNTUK KAMU");
+        $this->email->attach('./undangan/asasdsadasdds.jpg');
 
         if ($this->email->send()) {
             echo 'Your Email has successfully been sent.';
