@@ -35,8 +35,7 @@ class M_Notulensi extends CI_Model
     public function edit_data($where,$table){
 	return $this->db->get_where($table,$where);
   }
-  public function tampil($id = ''){
-    $this->db->where('id', $id);
+  public function tampil(){
 		return $this->db->get('datamasuk')->result();
 	}
 

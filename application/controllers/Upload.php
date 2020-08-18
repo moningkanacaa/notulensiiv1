@@ -96,8 +96,8 @@ class Upload extends CI_Controller {
               $this->email->set_newline("\r\n");
               $this->email->from("codeuser.a@gmail.com");
               $this->email->to($z);
-              $this->email->subject("Suat undangan TU");
-              $this->email->message("EMAIL UNTUK KAMU");
+              $this->email->subject("Suat undangan");
+              $this->email->message("Surat undangan rapat PRODI TI");
               $this->email->attach('./undangan/'.$this->upload->data("file_name"));
               $this->email->send();
             }
@@ -112,7 +112,7 @@ class Upload extends CI_Controller {
       }
 
     }else{
-      echo "ga bisa NIH PAK";
+      echo "Gagal";
     }
   }
   public function sending_email(){

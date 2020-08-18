@@ -16,9 +16,11 @@ class Arsip extends CI_Controller {
         if($this->admin->logged_id())
         {
             $data['datamasuk'] = $this->m_data->tampil_data();
+            // var_dump(  $data['generate'] = $this->m_data->tampil());
+            // die;
             $this->load->view("Template/Header");
             $this->load->view("Template/Sidebar");
-            $this->load->view("arsip",$data);
+            $this->load->view("arsip", $data);
             // $this->db->get('datamasuk');
 
 

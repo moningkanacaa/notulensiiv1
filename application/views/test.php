@@ -21,98 +21,43 @@
       <td align="center">
         <span style="line-height: 1.6; font-weight: bold;">
           <br> <br><br><br><br>
-          <img src="assets/img/nomor.jpg" style="position: absolute; width: 100px; height: auto;">
           <br>
         </span>
       </td>
     </tr>
   </table>
 
+<br>
   <table style="width: 100%;">
     <tr>
       <td align="center">
         <span style="line-height: 1.6; font-weight: bold;">
-          SURAT IZIN MENEMPUH UJIAN SUSULAN
+            NOTULENSI RAPAT FT TI
           <br>
         </span>
       </td>
     </tr>
-    <tr>
-      <td>
-        Bismillaahirrahmaanirrohiim
-        <br>Assalaamu’alaikum wr. wb.
-        <br>
-        <br>Setelah mempertimbangkan alasan/keterangan yang diajukan mahasiswa:
-      </td>
-    </tr>
-       <tr>
-         <td>  <br>Nama      : <?php echo $susulan_uts['nama_mahasiswa'];?>
-        <br>NPM       : <?php echo $susulan_uts['npm'];?>
-        <br>Program Studi   : <?php echo $susulan_uts['program_studi'];?>
-        <br>Kelas     : <?php echo $susulan_uts['kelas'];?>
-      </td>
-       </tr>
-       <tr>
-       <td>
-        <br>Kepada mahasiswa tersebut di atas diberikan izin untuk melaksanakan UTS/UAS*) susulan di Semester <?php echo $susulan_uts['semester'];?> TA. <?php echo $susulan_uts['tahun_ajaran'];?> dengan rincian  sebagai berikut:
-       </td>
-       </tr>
-  </table>
-
-  <table class="table table-bordered">
-    <tr>
-      <th rowspan="2">No</th>
-      <th rowspan="2">Mata Kuliah</th>
-      <th rowspan="2">Dosen</th>
-      <th colspan="2">Jadwal</th>
-    </tr>
-    <tr>
-        <th>Hari,Tanggal</th>
-        <th>Pukul (WIB)</th>
-    </tr>
-    <tr>
-      <?php $no=1; { ?>
-      <td><?php echo $no++; ?></td>
-      <td><?php echo $susulan_uts['matkul'];?></td>
-      <td><?php echo $susulan_uts['dosen'];?></td>
-      <td></td>
-      <td></td>
-    </tr>
-  <?php } ?>
-  </table>
-  <table style="width: 100%;">
+    <br> <br> <br>
+    <table class="table table-bordered">
       <tr>
-        <td>
-        Untuk kegiatan Ujian Susulan dimaksud, mahasiswa telah memenuhi kewajiban administrasi tambahan yang dibebankan terhadapnya.
-        <br>Demikian surat izin kegiatan ujian susulan ini diterbitkan, untuk dipergunakan sebagaimana mestinya.
-
-        <br><br>Wassalaamu’alaikum wr.wb.
-
-        </td>
+        <th>No</th>
+        <th>Judul Rapat </th>
+        <th>Pembahasan</th>
+        <th>Hasil Rapat</th>
       </tr>
-  </table>
-  <table style="width: 100%;">
+      <?php $no=1;
+      foreach($generate as $u) { ?>
       <tr>
-        <td></td>
-        <td></td>
-        <td>Bogor,(tgl)
-        <br>Ketua Program Studi Teknik Informatika
-        </td>
-      <tr>
-        <td>Fitrah Satrya Fajar
-          <br>NIK:410 100 569</td>
-      </tr>
-      <tr>
-        <td>
-          Tembusan
-            <br>1.  Ykh. Wakil Dekan Bidang Akademik
-            <br>2.  Ykh. Wakil Dekan Bidang Pengelolaan Sumberdaya
-            <br>3.  Dosen/Tenaga Pengajar Mata Kuliah
-            <br>4.  Pertinggal
 
-        </td>
+        <td><?php echo $no++; ?></td>
+        <td><?php echo $u->agenda_r ?> </td>
+        <td><?php echo $u->pembahasan ?></td>
+        <td><?php echo $u->hasilrapat ?></td>
+        <?php } ?>
       </tr>
+
   </table>
+
 
 </body>
 </html>

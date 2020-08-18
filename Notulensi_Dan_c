@@ -36,6 +36,21 @@ class Notulensi extends CI_Controller {
   }
   public function add()
   {
+    $hasilrapat = $this->input->post('hasilrapat');
+    $pembahasan = $this->input->post('pembahasan');
+    $id = $this->input->post('id');
+    $bungkus = [];
+    for ($i=0; $i < count($hasilrapat); $i++) {
+      $bungkus[$i]['pembahasan'] = $hasilrapat[$i];
+      $bungkus[$i]['datamasuk_id'] = $id;
+      $bungkus[$i]['created_at'] = date('Y-m-d');
+      $bungkus[$i]['hasil_rapat'] = $pembahasan[$i];
+
+
+    }
+    // print_r($bungkus);
+    $this->db->insert_batch('pembahasan_rapat', $bungkus);
+    // print_r($this->input->post('pembahasan'));
     $notulensiv1 = $this->M_Notulensi->save();
 
     redirect('notulensi');
@@ -46,9 +61,9 @@ class Notulensi extends CI_Controller {
     $this->session->sess_destroy();
     redirect('dashboard');
   }
-  public function generate_pdf($id = '')
+  public function generate_pdf()
   {
-    $data['generate'] = $this->M_Notulensi->tampil($id);
+    $data['generate'] = $this->M_Notulensi->tampil();
     // $data = array(
     // "dataku" => array(
     // "nama" => "Notulensi",

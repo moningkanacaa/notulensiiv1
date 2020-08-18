@@ -23,10 +23,8 @@ class M_Notulensi extends CI_Model
             'lokasi_r' => $this->input->post('lokasi_r'),
             // 'jumlahorg' => $this->input->post('jumlahorg'),
             // 'nomor_s' => $this->input->post('nomor_s'),
-            'pembahasan' => $this->input->post('pembahasan'),
-            'hasilrapat' => $this->input->post('hasilrapat'),
             'keterangan' => $this->input->post('keterangan'),
-            'nama_dosen' => implode(",",$this->input->post('peserta_rapat'))
+            'nama_dosen' => $this->input->post('peserta_rapat') ? implode(",",$this->input->post('peserta_rapat')): ''
       ];
 
       $input = $this->db->insert($this->_table,$data);
@@ -35,8 +33,7 @@ class M_Notulensi extends CI_Model
     public function edit_data($where,$table){
 	return $this->db->get_where($table,$where);
   }
-  public function tampil($id = ''){
-    $this->db->where('id', $id);
+  public function tampil(){
 		return $this->db->get('datamasuk')->result();
 	}
 

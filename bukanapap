@@ -1,0 +1,11 @@
+for ($i=0; $i < count($this->input->post("dosen")); $i++) {
+  if (count($this->input->post("dosen")) -1 == $i) {
+    $koma = "";
+  }else{
+    $koma = ";";
+
+  }
+  $masuk_email .= $this->input->post("dosen")[$i].$koma;
+  $this->db->where('nidn', $this->input->post("dosen")[$i]);
+  $emailnya[$i] = $this->db->get('namadosen')->row_array()['email'];
+}

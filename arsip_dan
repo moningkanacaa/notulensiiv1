@@ -27,11 +27,17 @@
                     <th>Download</th>
                     <!-- <th>Action</th> -->
                   </tr>
+</thead>
                   <?php
               		$no = 1;
+                  $j=1;
               		foreach($datamasuk->result_array() as $u){
+                    $this->db->select('*')->from('pembahasan_rapat');
+                    $this->db->where('datamasuk_id', $u['id']);
+                    $pembahasan = $this->db->get()->result();
+
               		?>
-                </thead>
+
                 <tbody>
 
                   <tr>
@@ -39,9 +45,19 @@
                     <!-- <td><?php echo $u['id'];?></td> -->
                     <td><?php echo $u['agenda_r'];?></td>
                     <!-- <td><?php echo $u['lokasi_r'];?></td> -->
-                    <td><?php echo $u['pembahasan'];?></td>
-                    <td><?php echo $u['hasilrapat']; ?></td>
-                    <td><a href = "<?php echo base_url()?>index.php/Notulensi/generate_pdf/<?php echo $u['id']; ?>" class="fa fa-Download"> PDF </a></td>
+                      <td><?php foreach ($pembahasan as $k): ?>
+                        <?php echo $k->pembahasan;?>
+
+                      <?php endforeach; ?>
+                    </td>
+                      <td>
+                      <?php foreach ($pembahasan as $k): ?>
+
+                        <?php echo $k->hasil_rapat; ?>
+                      <?php endforeach; ?>
+                    </td>
+
+                    <td><a href = "<?php echo base_url()?>index.php/Notulensi/generate_pdf" class="fa fa-Download"> PDF </a></td>
                     <!-- <td><a href = "<?php echo base_url('index.php/notulensi/edit/'.$u['id'])?>" </a> Edit </td> -->
                   </tr>
                   </tbody>
